@@ -1,10 +1,9 @@
 /* eslint-disable react/self-closing-comp */
 import NextImage from 'next/image';
 import { Box, Divider } from '@chakra-ui/layout';
-import { navMenu, musicMenu, playList } from './menus';
+import { navMenu, musicMenu } from './menus';
+import Playlists from './Playlists';
 import MenuList from './MenuList';
-
-// Icons
 
 const Sidebar = () => {
   return (
@@ -26,9 +25,9 @@ const Sidebar = () => {
         <Box marginTop='20px' height='auto'>
           <MenuList menu={musicMenu} />
         </Box>
-        <Divider marginY='20px' color='gray.800' />
+        <Divider marginY='20px' color='gray.900' />
         <Box height='45%' overflowY='auto' paddingY='20px'>
-          <MenuList menu={playList} />
+          <Playlists />
         </Box>
       </Box>
     </Box>

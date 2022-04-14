@@ -9,18 +9,25 @@ import {
 
 const MenuList = ({ menu }) => {
   return (
-    <List spacing='3'>
+    <List spacing='1'>
       {menu.map((item) => (
-        <ListItem paddingX='25px' fontSize='16px' key={item.name}>
+        <ListItem
+          paddingX='25px'
+          paddingY='5px'
+          fontSize='16px'
+          key={item.name}
+          _hover={{
+            backgroundColor: 'gray.900',
+          }}
+        >
           <LinkBox>
             <NextLink href={item.route} passHref>
-              <LinkOverlay display='flex' alignItems='center'>
+              <LinkOverlay>
                 <ListIcon
-                  fontSize='25px'
+                  fontSize='20px'
                   as={item.icon}
                   color='white'
-                  size='24px'
-                  marginRight='20px'
+                  marginRight='15px'
                 />
                 {item.name}
               </LinkOverlay>
