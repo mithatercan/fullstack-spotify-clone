@@ -11,9 +11,14 @@ const PlayerLayout = ({ children }) => {
       <Box marginLeft='250px' marginBottom='100px'>
         <Box height='calc(100vh - 100px)'>{children}</Box>
       </Box>
-      <Box position='absolute' bottom='0' left='0'>
-        Player
-      </Box>
+      <Box
+        bg='gray.900'
+        height='100px'
+        right='0'
+        position='absolute'
+        bottom='0'
+        left='0'
+      ></Box>
     </Box>
   );
 };
