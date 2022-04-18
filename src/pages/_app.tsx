@@ -2,7 +2,6 @@ import '@fontsource/poppins';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import PlayerLayout from '../components/PlayerLayout';
 import 'reset-css';
-import Head from 'next/head';
 
 const theme = extendTheme({
   fonts: {
@@ -38,12 +37,13 @@ const theme = extendTheme({
 const MyApp = ({ Component, pageProps }) => {
   return (
     <ChakraProvider theme={theme}>
-      <Head>
-        <title>Spotify Clone</title>
-      </Head>
-      <PlayerLayout>
+      {Component.authPage ? (
         <Component {...pageProps} />
-      </PlayerLayout>
+      ) : (
+        <PlayerLayout>
+          <Component {...pageProps} />
+        </PlayerLayout>
+      )}
     </ChakraProvider>
   );
 };

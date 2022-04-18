@@ -38,12 +38,4 @@ const musicMenu = [
   },
 ];
 
-const playlists = Array(16)
-  .fill(1)
-  .map((_, i) => ({
-    name: `Playlist ${i + 1}`,
-    icon: RiPlayListFill,
-    route: '/',
-  }));
-
-export { navMenu, musicMenu, playlists };
+export { navMenu, musicMenu };

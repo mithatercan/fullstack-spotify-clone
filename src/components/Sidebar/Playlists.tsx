@@ -1,8 +1,14 @@
-import React from 'react';
-import { playlists } from './menus';
+import usePlaylist from '../../hooks/usePlaylist';
 import MenuList from './MenuList';
+
 const Playlists = () => {
-  return <MenuList menu={playlists} />;
+  const { isLoading, playlists, isError } = usePlaylist();
+
+  return isLoading || isError ? (
+    <div>Loading...</div>
+  ) : (
+    <MenuList menu={playlists} />
+  );
 };
 
 export default Playlists;

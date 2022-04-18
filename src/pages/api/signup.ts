@@ -31,13 +31,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       id: user.id,
       time: Date.now(),
     },
-    'hello',
+    process.env.JWT_SECRET,
     { expiresIn: '8h' }
   );
 
   res.setHeader(
     'Set-Cookie',
-    cookie.serialize('TRAX_ACCESS_TOKEN', token, {
+    cookie.serialize('SPOTIFY_CLONE_ACCESS_TOKEN', token, {
       httpOnly: true,
       maxAge: 8 * 60 * 60,
       path: '/',
