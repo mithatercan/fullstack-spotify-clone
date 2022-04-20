@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Box } from '@chakra-ui/layout';
+import PlayerBar from './PlayerBar';
 import Sidebar from './Sidebar';
 
 const PlayerLayout = ({ children }) => {
@@ -11,14 +12,9 @@ const PlayerLayout = ({ children }) => {
       <Box marginLeft='250px' marginBottom='100px'>
         <Box height='calc(100vh - 100px)'>{children}</Box>
       </Box>
-      <Box
-        bg='gray.900'
-        height='100px'
-        right='0'
-        position='absolute'
-        bottom='0'
-        left='0'
-      ></Box>
+      <Box height='100px' position='absolute' right='0' bottom='0' left='0'>
+        <PlayerBar />
+      </Box>
     </Box>
   );
 };

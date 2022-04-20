@@ -25,7 +25,7 @@ const Sidebar = () => {
         <Box marginTop='20px' height='auto'>
           <MenuList menu={musicMenu} />
         </Box>
-        <Divider marginY='20px' color='gray.900' />
+        <Divider marginY='20px' size='1px' color='gray.700' />
         <Box height='45%' overflowY='auto' paddingY='20px'>
           <Playlists />
         </Box>
