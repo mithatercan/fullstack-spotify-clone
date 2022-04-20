@@ -1,9 +1,10 @@
 import React from 'react';
-import { Box } from '@chakra-ui/layout';
-import { useRouter } from 'next/router';
-const Playlist = () => {
-  const { query } = useRouter();
+import prisma from '../../../lib/prisma';
+import GradientLayout from '../../components/GradientLayout';
+import { validateToken } from '../../../lib/auth';
+import SongsTable from '../../components/SongsTable';
 
+const Playlist = ({ playlist }) => {
   const getBGColor = (id) => {
     const colors = [
       'red',
@@ -20,14 +21,56 @@ const Playlist = () => {
   };
 
   return (
-    <Box
-      width='calc(100vw - 250px)'
-      minHeight='100vh'
-      bg={getBGColor(query.id)}
+    <GradientLayout
+      color={getBGColor(playlist.id)}
+      roundedImage={false}
+      title={playlist.name}
+      subtitle='Playlist'
+      description={`${playlist.songs.length} songs`}
+      image={`https://picsum.photos/400?random=${playlist.id}`}
     >
-      Playlist {query.id}
-    </Box>
+      <SongsTable songs={playlist.songs} />
+    </GradientLayout>
   );
 };
 
 export default Playlist;
+
+export const getServerSideProps = async ({ query, req }) => {
+  let user;
+
+  try {
+    user = validateToken(req.cookies.SPOTIFY_CLONE_ACCESS_TOKEN);
+  } catch (error) {
+    return {
+      redirect: {
+        destination: '/signin',
+        permanent: true,
+      },
+    };
+  }
+
+  const [playlist] = await prisma.playlist.findMany({
+    where: {
+      id: +query.id,
+    },
+    include: {
+      songs: {
+        include: {
+          artist: {
+            select: {
+              id: true,
+              name: true,
+            },
+          },
+        },
+      },
+    },
+  });
+
+  return {
+    props: {
+      playlist,
+    },
+  };
+};
