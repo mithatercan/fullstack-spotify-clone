@@ -28,7 +28,6 @@ const Player = ({ activeSongs, activeSong }) => {
   const [playing, setPlaying] = useState(false);
   const [seek, setSeek] = useState(0.0);
   const [isSeeking, setIsSeeking] = useState(false);
-
   const [index, setIndex] = useState(0);
   const [repeat, setRepat] = useState(false);
   const [shuffle, setShuffle] = useState(false);

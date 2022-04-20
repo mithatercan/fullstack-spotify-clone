@@ -2,6 +2,8 @@ import { Input, Button, Grid } from '@chakra-ui/react';
 import { useState } from 'react';
 import { auth } from '../../lib/mutations';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+
 const AuthForm = ({ mode }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -45,7 +47,6 @@ const AuthForm = ({ mode }) => {
           type='password'
           onChange={(e) => setPassword(e.target.value)}
         />
-
         <Button
           _hover={{
             bg: 'green.100',

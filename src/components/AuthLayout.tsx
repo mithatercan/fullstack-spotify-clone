@@ -20,6 +20,9 @@ const AuthLayout: FC<{ mode: 'signin' | 'signup' }> = ({ mode }) => {
           <Image src='/logo.png' height='90px' width='280px' />
         </Center>
         <AuthForm mode={mode} />
+        <Box>
+          Email : user@test.com <br /> Password : password
+        </Box>
       </Flex>
     </Box>
   );
