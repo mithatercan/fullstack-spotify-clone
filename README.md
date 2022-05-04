@@ -38,7 +38,7 @@ First of all, you should have the Postgresql database. If you don't have one run
   JWT_SECRET =
 ```
 
-## Prisma ORM
+### Prisma ORM
 
 You must have the prisma orm downloaded on your local machine. To download the prisma, check the guide [here](https://www.prisma.io/docs/getting-started/quickstart).
 
@@ -54,7 +54,7 @@ You must have the prisma orm downloaded on your local machine. To download the p
   npx prisma db seed
 ```
 
-## Final Step
+### Final Step
 
 After all these setup above. The app is ready to run.
 
