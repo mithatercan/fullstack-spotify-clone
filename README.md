@@ -1,34 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Spotify Clone
 
-## Getting Started
+Spotify Clone built on NextJS for the client and server side. And I've used Postgresql and Prisma ORM for the database. For the style, i used ChakraUI to build the components.
 
-First, run the development server:
+## [Live Demo](https://nextjs-spotify-clone-lac.vercel.app/signin)
+
+![](https://user-images.githubusercontent.com/71825314/166818448-3fd621de-56ab-43a4-993e-e670d2e48d02.png)
+
+# Setup ⚙️
+
+First of all, you should have the Postgresql database. If you don't have one running locally then you can use [Heroku](https://www.heroku.com/postgres) create the Postgresql database.
+
+- Start with cloning this repo.
 
 ```bash
-npm run dev
-# or
-yarn dev
+ git clone https://github.com/mithatercan/nextjs-spotify-clone.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- You should install the dependencies.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+ npm install
+ #or
+ npm install --force
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- You should create the ` .env` file to set the JWT secret and database URL variables.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+  touch .env
+```
 
-## Learn More
+- The .env file should look like this.
 
-To learn more about Next.js, take a look at the following resources:
+```env
+  DATABASE_URL=
+  SHADOW_DATABASE_URL=
+  JWT_SECRET =
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Prisma ORM
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+You must have the prisma orm downloaded on your local machine. To download the prisma, check the guide [here](https://www.prisma.io/docs/getting-started/quickstart).
 
-## Deploy on Vercel
+- Then you should run migrate the schemas to database
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+  npx prisma migrate deploy
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- And finally you should seed the data.
+
+```bash
+  npx prisma db seed
+```
+
+## Final Step
+
+After all these setup above. The app is ready to run.
+
+```bash
+ npm run dev
+```
+
+Default port is 3000. App will be running at localhost:3000
+
+# Contribution 🙏
+
+Pull requests are welcome, you can simply create an issue and contributing the app.
+
+# License
+
+[MIT](https://choosealicense.com/licenses/mit/)
