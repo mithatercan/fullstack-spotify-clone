@@ -1,18 +1,18 @@
-import bcyrpt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import cookie from 'cookie';
-import prisma from '../../../lib/prisma';
-import { NextApiRequest, NextApiResponse } from 'next';
+import bcyrpt from 'bcrypt'
+import jwt from 'jsonwebtoken'
+import cookie from 'cookie'
+import prisma from '../../../lib/prisma'
+import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { email, password } = req.body;
+  const { email, password } = req.body
   const user = await prisma.user.findUnique({
     where: {
       email,
     },
-  });
+  })
 
-  if (user && bcyrpt.compareSync(password, user.password)) {
+  if (user && bcyrpt.compareSync(password, user?.password)) {
     const token = jwt.sign(
       {
         id: user.id,
@@ -23,7 +23,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       {
         expiresIn: '8h',
       }
-    );
+    )
 
     res.setHeader(
       'Set-Cookie',
@@ -34,11 +34,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         sameSite: 'lax',
         secure: process.env.NODE_ENV === 'production',
       })
-    );
+    )
 
-    res.json(user);
+    res.json(user)
   } else {
-    res.status(401);
-    res.json({ error: 'Invalid credentials' });
+    res.status(401)
+    res.json({ error: 'Invalid credentials' })
   }
-};
+}
