@@ -1,6 +1,6 @@
 # Spotify Clone
 
-Spotify clone made with NextJS on both the client and server sides. For the database, I utilized Postgresql and Prisma ORM. I used ChakraUI to create the components for the style.
+NextJS was used on both the client and server sides to create a Spotify clone. I used Postgresql and Prisma ORM for the database. ChakraUI was used to construct the style's components.
 
 ## [Live Demo](https://nextjs-spotify-clone-lac.vercel.app/signin)
 
@@ -8,7 +8,7 @@ Spotify clone made with NextJS on both the client and server sides. For the data
 
 # Setup ⚙️
 
-First of all, you should have the Postgresql database. If you don't have one running locally then you can use [Heroku](https://www.heroku.com/postgres) create the Postgresql database.
+First and foremost, you must have the Postgresql database. If you don't have one running locally, you may establish a Postgresql database using [Heroku](https://www.heroku.com/postgres).
 
 - Start with cloning this repo.
 
